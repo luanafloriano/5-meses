@@ -824,7 +824,7 @@ function scheduleMelody() {
   loopTimer = setTimeout(() => { if (isPlaying) scheduleMelody(); }, (total - .15) * 1000);
 }
 
-function toggleMusic() {
+async function toggleMusic() {
   const btn = document.getElementById('music-btn');
   if (!isPlaying) {
     if (!audioCtx) {
@@ -833,7 +833,8 @@ function toggleMusic() {
       masterGain.gain.value = .55;
       masterGain.connect(audioCtx.destination);
     }
-    if (audioCtx.state === 'suspended') audioCtx.resume();
+    // Espera o contexto estar rodando antes de tocar (essencial no iOS/Android)
+    if (audioCtx.state !== 'running') await audioCtx.resume();
     isPlaying = true;
     btn.textContent = '🎶';
     btn.classList.add('playing');
