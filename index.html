@@ -587,29 +587,7 @@
   ═══════════════════════════════════════════════════════════════ -->
   <section id="gallery" class="reveal">
     <h2 class="section-title">📸 Nossa Galeria de Memórias</h2>
-    <div class="gallery-grid" id="gallery-grid">
-      <div class="gallery-item"><img src="fotos/foto1.jpg"  alt="Foto 1"  onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto2.jpg"  alt="Foto 2"  onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto3.jpg"  alt="Foto 3"  onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto4.jpg"  alt="Foto 4"  onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto5.jpg"  alt="Foto 5"  onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto6.jpg"  alt="Foto 6"  onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto7.jpg"  alt="Foto 7"  onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto8.jpg"  alt="Foto 8"  onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto9.jpg"  alt="Foto 9"  onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto10.jpg" alt="Foto 10" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto11.jpg" alt="Foto 11" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto12.jpg" alt="Foto 12" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto13.jpg" alt="Foto 13" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto14.jpg" alt="Foto 14" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto15.jpg" alt="Foto 15" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto16.jpg" alt="Foto 16" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto17.jpg" alt="Foto 17" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto18.jpg" alt="Foto 18" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto19.jpg" alt="Foto 19" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto20.jpg" alt="Foto 20" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="fotos/foto21.jpg" alt="Foto 21" onerror="this.parentElement.style.display='none'"></div>
-    </div>
+    <div class="gallery-grid" id="gallery-grid"></div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════
@@ -709,6 +687,32 @@ function spawnCat() {
 }
 setInterval(spawnCat, 6000);
 
+
+/* ─── GALLERY — carrega fotos da pasta fotos/ via GitHub API ── */
+(function loadGallery() {
+  const grid = document.getElementById('gallery-grid');
+  const REPO = 'luanafloriana/5-meses';
+  const API  = `https://api.github.com/repos/${REPO}/contents/fotos`;
+
+  fetch(API)
+    .then(r => r.json())
+    .then(files => {
+      const imgs = files.filter(f => f.type === 'file' && /\.(jpe?g|png|gif|webp)$/i.test(f.name));
+      if (imgs.length === 0) return;
+      imgs.forEach((f, i) => {
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+        div.style.animationDelay = (i * 0.05) + 's';
+        const img = document.createElement('img');
+        img.src = f.download_url;
+        img.alt = f.name;
+        img.loading = 'lazy';
+        div.appendChild(img);
+        grid.appendChild(div);
+      });
+    })
+    .catch(() => {}); // silencia erro se offline
+})();
 
 /* ─── HEART EXPLOSION ───────────────────────────────────────── */
 const heartPool = ['💕','💖','💗','💓','💝','🩷','❤️','🐾','💘','💞','🌸','✨'];
