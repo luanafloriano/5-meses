@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabriel & Luana 🐾 5 Meses!</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* ─── CUSTOM VARIABLES ─────────────────────────────────────── */
+    :root {
+      --pink:       #FF6B9D;
+      --pink2:      #FF4081;
+      --pink-l:     #FFB3CE;
+      --pink-p:     #FFE4EF;
+      --lilac:      #B87FE8;
+      --lilac-l:    #D4A8F0;
+      --lilac-p:    #EED9F9;
+      --white:      #FFFAFF;
+      --text:       #5A3A6A;
+      --text-l:     #9B7AAB;
+    }
+
+    /* ─── CUSTOM CURSOR ─────────────────────────────────────────── */
+    * {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='68' r='28' fill='%23FF6B9D'/%3E%3Ccircle cx='22' cy='32' r='14' fill='%23FF6B9D'/%3E%3Ccircle cx='78' cy='32' r='14' fill='%23FF6B9D'/%3E%3Ccircle cx='40' cy='18' r='13' fill='%23FF6B9D'/%3E%3Ccircle cx='60' cy='18' r='13' fill='%23FF6B9D'/%3E%3C/svg%3E") 16 8, auto;
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+
+    /* ─── BASE ──────────────────────────────────────────────────── */
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #FFF0F8 0%, #F5EAFF 50%, #FFF0FA 100%);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ─── FLOATING HEARTS BG ────────────────────────────────────── */
+    #hearts-bg {
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-heart {
+      position: absolute;
+      bottom: -60px;
+      animation: floatUp linear infinite;
+      opacity: 0;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(0)       rotate(0deg);   opacity: 0; }
+      5%   { opacity: .2; }
+      95%  { opacity: .12; }
+      100% { transform: translateY(-115vh)  rotate(360deg); opacity: 0; }
+    }
+
+    /* ─── KEYFRAMES ─────────────────────────────────────────────── */
+    @keyframes wiggle {
+      0%,100% { transform: rotate(-4deg); }
+      50%     { transform: rotate(4deg);  }
+    }
+    @keyframes popIn {
+      0%  { transform: scale(0) rotate(-6deg); opacity: 0; }
+      70% { transform: scale(1.08) rotate(2deg); }
+      100%{ transform: scale(1) rotate(0); opacity: 1; }
+    }
+    @keyframes bounce {
+      0%,100%{ transform: translateY(0);   }
+      50%    { transform: translateY(-10px); }
+    }
+    @keyframes heartFall {
+      0%   { transform: translateY(-80px) rotate(0deg)   scale(1);   opacity: 1; }
+      80%  { opacity: 1; }
+      100% { transform: translateY(105vh) rotate(720deg) scale(.6); opacity: 0; }
+    }
+    @keyframes pulse {
+      0%,100%{ transform: scale(1);    box-shadow: 0 0 0 0   rgba(255,107,157,.5); }
+      50%    { transform: scale(1.07); box-shadow: 0 0 0 18px rgba(255,107,157,0); }
+    }
+    @keyframes catSlide {
+      0%   { transform: translateX(-180px) translateY(0px); opacity: 0; }
+      8%   { opacity: 1; }
+      92%  { opacity: 1; }
+      100% { transform: translateX(calc(100vw + 180px)) translateY(-20px); opacity: 0; }
+    }
+    @keyframes dachWiggle {
+      0%,100%{ transform: translateY(0)   rotate(0deg); }
+      25%    { transform: translateY(-12px) rotate(-2deg); }
+      75%    { transform: translateY(-6px)  rotate(2deg);  }
+    }
+    @keyframes gradientShift {
+      0%  { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100%{ background-position: 0% 50%; }
+    }
+    @keyframes shimmer {
+      0%  { filter: hue-rotate(0deg);   }
+      100%{ filter: hue-rotate(360deg); }
+    }
+    @keyframes heartBeat {
+      0%,100%{ transform: scale(1); }
+      14%    { transform: scale(1.3); }
+      28%    { transform: scale(1); }
+      42%    { transform: scale(1.2); }
+      70%    { transform: scale(1); }
+    }
+
+    /* ─── LAYOUT HELPERS ────────────────────────────────────────── */
+    main { position: relative; z-index: 1; }
+
+    section {
+      padding: 70px 24px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--pink);
+      text-align: center;
+      margin-bottom: 44px;
+      text-shadow: 3px 3px 0 var(--lilac-l);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      gap: 18px;
+    }
+
+    .date-badge {
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      color: #fff;
+      padding: 9px 28px;
+      border-radius: 50px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 18px rgba(255,107,157,.4);
+      animation: bounce 2.4s ease infinite;
+    }
+
+    .hero-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(3rem, 11vw, 6.5rem);
+      background: linear-gradient(270deg, var(--pink), var(--lilac), var(--pink2), var(--lilac));
+      background-size: 300% 300%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 5s ease infinite;
+      line-height: 1.1;
+    }
+
+    .hero-months {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
+      color: var(--lilac);
+      text-shadow: 2px 2px 0 var(--pink-l);
+    }
+
+    .dachshund-wrap {
+      animation: dachWiggle 3.2s ease infinite;
+      margin: 4px 0;
+      filter: drop-shadow(0 8px 18px rgba(255,107,157,.25));
+    }
+
+    .hero-tagline {
+      font-size: clamp(.95rem, 2.5vw, 1.35rem);
+      color: var(--text-l);
+      font-weight: 700;
+      max-width: 520px;
+      line-height: 1.7;
+      background: rgba(255,255,255,.75);
+      padding: 18px 28px;
+      border-radius: 22px;
+      border: 2.5px dashed var(--pink-l);
+      backdrop-filter: blur(6px);
+    }
+
+    .scroll-hint {
+      margin-top: 12px;
+      font-size: 1.8rem;
+      animation: bounce 1.6s ease infinite;
+      color: var(--pink);
+    }
+
+    /* ─── COUNTER ───────────────────────────────────────────────── */
+    #counter-section {
+      background: rgba(255,255,255,.6);
+      backdrop-filter: blur(12px);
+      border-radius: 32px;
+      border: 3px solid var(--pink-l);
+      box-shadow: 0 12px 48px rgba(255,107,157,.14);
+    }
+
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .counter-card {
+      background: linear-gradient(135deg, #fff, var(--pink-p));
+      border-radius: 22px;
+      padding: 32px 16px;
+      text-align: center;
+      border: 2.5px solid var(--pink-l);
+      box-shadow: 0 6px 22px rgba(255,107,157,.14);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .counter-card:hover {
+      transform: translateY(-10px) scale(1.06);
+      box-shadow: 0 14px 36px rgba(255,107,157,.25);
+    }
+
+    .counter-emoji { font-size: 2rem; display: block; margin-bottom: 10px; animation: heartBeat 2s ease infinite; }
+
+    .counter-number {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+
+    .counter-label {
+      font-family: 'Fredoka One', cursive;
+      font-size: .95rem;
+      color: var(--text-l);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* ─── CATS ──────────────────────────────────────────────────── */
+    #cats { text-align: center; }
+
+    .cats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 18px;
+    }
+
+    .cat-card {
+      background: linear-gradient(135deg, #fff, var(--lilac-p));
+      border-radius: 22px;
+      padding: 28px 16px;
+      border: 2.5px solid var(--lilac-l);
+      box-shadow: 0 5px 20px rgba(184,127,232,.14);
+      transition: all .35s cubic-bezier(.34,1.56,.64,1);
+      animation: popIn .5s ease both;
+    }
+    .cat-card:nth-child(1) { animation-delay: .05s; }
+    .cat-card:nth-child(2) { animation-delay: .1s; }
+    .cat-card:nth-child(3) { animation-delay: .15s; }
+    .cat-card:nth-child(4) { animation-delay: .2s; }
+    .cat-card:nth-child(5) { animation-delay: .25s; }
+    .cat-card:nth-child(6) { animation-delay: .3s; }
+    .cat-card:nth-child(7) { animation-delay: .35s; }
+    .cat-card:nth-child(8) { animation-delay: .4s; }
+
+    .cat-card:hover {
+      transform: translateY(-14px) scale(1.09) rotate(3deg);
+      box-shadow: 0 18px 44px rgba(184,127,232,.32);
+      border-color: var(--lilac);
+    }
+
+    .cat-emoji {
+      font-size: 3.6rem;
+      display: block;
+      margin-bottom: 10px;
+      transition: transform .3s ease;
+    }
+    .cat-card:hover .cat-emoji { animation: wiggle .45s ease infinite; }
+
+    .cat-name { font-family: 'Fredoka One', cursive; font-size: 1.1rem; color: var(--lilac); }
+    .cat-desc { font-size: .82rem; color: var(--text-l); margin-top: 5px; line-height: 1.4; }
+
+    /* Floating cat */
+    .floating-cat {
+      position: fixed;
+      pointer-events: none;
+      z-index: 998;
+      animation: catSlide linear forwards;
+      user-select: none;
+    }
+
+    /* ─── GALLERY ───────────────────────────────────────────────── */
+    #gallery { text-align: center; }
+
+    .gallery-subtitle {
+      color: var(--text-l);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .gallery-slot {
+      aspect-ratio: 1;
+      border-radius: 18px;
+      border: 3px dashed var(--pink-l);
+      background: linear-gradient(135deg, var(--pink-p), var(--lilac-p));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer !important;
+      overflow: hidden;
+      transition: all .3s ease;
+      position: relative;
+      animation: popIn .4s ease both;
+    }
+    .gallery-slot:hover {
+      border-color: var(--pink);
+      transform: scale(1.04);
+      box-shadow: 0 10px 28px rgba(255,107,157,.24);
+    }
+    .gallery-slot img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      position: absolute; inset: 0;
+    }
+    .slot-icon { font-size: 2.6rem; margin-bottom: 8px; }
+    .slot-text { font-family: 'Fredoka One', cursive; color: var(--pink); font-size: .9rem; }
+
+    .gallery-slot input[type="file"] { display: none; }
+
+    .remove-btn {
+      position: absolute;
+      top: 8px; right: 8px;
+      background: rgba(255,255,255,.92);
+      border: none;
+      border-radius: 50%;
+      width: 30px; height: 30px;
+      font-size: .85rem;
+      cursor: pointer !important;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      color: var(--pink);
+      font-weight: 800;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      transition: transform .2s ease;
+    }
+    .remove-btn:hover { transform: scale(1.2); }
+    .gallery-slot:hover .remove-btn { display: flex; }
+
+    .add-slot-btn {
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      color: #fff;
+      border: none;
+      padding: 15px 36px;
+      border-radius: 50px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.15rem;
+      cursor: pointer !important;
+      box-shadow: 0 6px 22px rgba(255,107,157,.4);
+      transition: all .3s ease;
+    }
+    .add-slot-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 10px 32px rgba(255,107,157,.5); }
+
+    /* ─── MESSAGE ───────────────────────────────────────────────── */
+    #message { text-align: center; }
+
+    .message-card {
+      background: linear-gradient(135deg, #fff 0%, var(--pink-p) 100%);
+      border-radius: 32px;
+      padding: 52px 44px;
+      border: 3px solid var(--pink-l);
+      box-shadow: 0 16px 56px rgba(255,107,157,.18);
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .message-card::before {
+      content: '💕';
+      position: absolute;
+      font-size: 9rem;
+      opacity: .05;
+      top: -24px; right: -24px;
+      transform: rotate(18deg);
+    }
+    .message-card::after {
+      content: '🐾';
+      position: absolute;
+      font-size: 7rem;
+      opacity: .05;
+      bottom: -14px; left: -14px;
+      transform: rotate(-12deg);
+    }
+
+    .message-icon { font-size: 3.2rem; display: block; margin-bottom: 20px; animation: heartBeat 2.4s ease infinite; }
+
+    .message-quote {
+      font-size: clamp(.95rem, 2vw, 1.2rem);
+      line-height: 2;
+      color: var(--text);
+      font-weight: 600;
+      font-style: italic;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .message-divider {
+      width: 80px; height: 4px;
+      background: linear-gradient(to right, var(--pink), var(--lilac));
+      border-radius: 2px;
+      margin: 20px auto;
+    }
+
+    .message-signature {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ─── EXPLOSION ─────────────────────────────────────────────── */
+    #explosion { text-align: center; }
+
+    .explosion-btn {
+      background: linear-gradient(135deg, var(--pink), var(--pink2), var(--lilac));
+      background-size: 200% 200%;
+      animation: gradientShift 3s ease infinite;
+      color: #fff;
+      border: none;
+      padding: 22px 56px;
+      border-radius: 50px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.6rem;
+      cursor: pointer !important;
+      box-shadow: 0 8px 32px rgba(255,107,157,.5);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+    }
+    .explosion-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 14px 44px rgba(255,107,157,.6);
+    }
+    .explosion-btn:active { transform: scale(.94); }
+
+    .falling-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: heartFall linear forwards;
+      user-select: none;
+    }
+
+    /* ─── MUSIC BUTTON ──────────────────────────────────────────── */
+    #music-btn {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 68px; height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      border: none;
+      font-size: 1.9rem;
+      cursor: pointer !important;
+      z-index: 1000;
+      box-shadow: 0 6px 22px rgba(255,107,157,.5);
+      animation: pulse 2.4s ease infinite;
+      transition: transform .25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #music-btn:hover { transform: scale(1.12); }
+    #music-btn.playing { animation: pulse .8s ease infinite; }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 48px 24px 72px;
+      font-family: 'Fredoka One', cursive;
+      color: var(--text-l);
+    }
+    footer p { font-size: 1.15rem; }
+    footer small { font-family: 'Nunito', sans-serif; font-size: .9rem; margin-top: 6px; display: block; }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .counter-grid { grid-template-columns: repeat(2, 1fr); }
+      .cats-grid    { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .message-card { padding: 32px 20px; }
+      .explosion-btn { font-size: 1.2rem; padding: 18px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── FLOATING HEARTS BACKGROUND ─────────────────────────────── -->
+<div id="hearts-bg"></div>
+
+<main>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="date-badge">💕 01 / 11 / 2025 — Início de tudo 💕</div>
+
+    <h1 class="hero-title">Gabriel &amp; Luana</h1>
+
+    <p class="hero-months">🎉 5 Meses Juntos! 🎉</p>
+
+    <!-- Dachshund peidando coração -->
+    <div class="dachshund-wrap">
+      <svg width="320" height="180" viewBox="0 0 320 180"
+           xmlns="http://www.w3.org/2000/svg" aria-label="Cachorrinho salsicha peidando coração">
+
+        <!-- Coração saindo da bunda -->
+        <text x="4" y="72" font-size="44">💕</text>
+        <!-- Linhas de "gas" pontilhadas -->
+        <path d="M88 92 Q70 78 74 60" stroke="#FF6B9D" stroke-width="2.5" stroke-dasharray="4,4" fill="none" stroke-linecap="round" opacity=".7"/>
+        <path d="M82 100 Q62 88 66 72" stroke="#FF6B9D" stroke-width="2"   stroke-dasharray="4,4" fill="none" stroke-linecap="round" opacity=".5"/>
+        <path d="M88 80 Q72 64 76 50" stroke="#FFB3CE" stroke-width="2"   stroke-dasharray="3,5" fill="none" stroke-linecap="round" opacity=".55"/>
+
+        <!-- Rabo -->
+        <path d="M98 90 Q80 68 84 50 Q88 38 100 44"
+              stroke="#B8865A" stroke-width="13" fill="none" stroke-linecap="round"/>
+
+        <!-- Corpo -->
+        <ellipse cx="178" cy="104" rx="90" ry="38" fill="#D4A462"/>
+        <!-- Barriguinha -->
+        <ellipse cx="178" cy="116" rx="64" ry="22" fill="#EDCA8A"/>
+
+        <!-- Patas traseiras -->
+        <rect x="112" y="134" width="20" height="34" rx="10" fill="#C8955A"/>
+        <rect x="138" y="134" width="20" height="34" rx="10" fill="#C8955A"/>
+        <!-- Patas dianteiras -->
+        <rect x="204" y="134" width="20" height="34" rx="10" fill="#C8955A"/>
+        <rect x="230" y="134" width="20" height="34" rx="10" fill="#C8955A"/>
+
+        <!-- Cabeça -->
+        <circle cx="258" cy="88" r="36" fill="#D4A462"/>
+
+        <!-- Focinho -->
+        <ellipse cx="280" cy="100" rx="20" ry="15" fill="#EDCA8A"/>
+
+        <!-- Nariz -->
+        <ellipse cx="294" cy="97" rx="8" ry="6" fill="#3D2318"/>
+        <circle cx="297" cy="95" r="2.5" fill="white" opacity=".8"/>
+
+        <!-- Olho -->
+        <circle cx="255" cy="80" r="10" fill="#2A1A0E"/>
+        <circle cx="259" cy="76" r="4"  fill="white"/>
+        <circle cx="261" cy="74" r="1.5" fill="white" opacity=".6"/>
+
+        <!-- Bochechas coradas -->
+        <ellipse cx="244" cy="94" rx="9" ry="6" fill="#FF9ABF" opacity=".45"/>
+
+        <!-- Orelhas fofas -->
+        <ellipse cx="242" cy="58" rx="16" ry="26" fill="#A07840" transform="rotate(-12 242 58)"/>
+        <ellipse cx="264" cy="55" rx="12" ry="20" fill="#A07840" transform="rotate(6 264 55)"/>
+
+        <!-- Sorriso -->
+        <path d="M274 106 Q282 114 292 106" stroke="#8A6030" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+        <!-- Estrelinhas -->
+        <text x="36"  y="46" font-size="14">✨</text>
+        <text x="56"  y="28" font-size="11">💫</text>
+        <text x="20"  y="102" font-size="12">🌸</text>
+      </svg>
+    </div>
+
+   
+
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       CONTADOR AO VIVO
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="counter-section" class="reveal">
+    <h2 class="section-title">⏰ Juntos há exatamente...</h2>
+    <div class="counter-grid">
+      <div class="counter-card">
+        <span class="counter-emoji">☀️</span>
+        <div class="counter-number" id="c-days">000</div>
+        <div class="counter-label">Dias</div>
+      </div>
+      <div class="counter-card">
+        <span class="counter-emoji">🕐</span>
+        <div class="counter-number" id="c-hours">00</div>
+        <div class="counter-label">Horas</div>
+      </div>
+      <div class="counter-card">
+        <span class="counter-emoji">⏱️</span>
+        <div class="counter-number" id="c-mins">00</div>
+        <div class="counter-label">Minutos</div>
+      </div>
+      <div class="counter-card">
+        <span class="counter-emoji">💫</span>
+        <div class="counter-number" id="c-secs">00</div>
+        <div class="counter-label">Segundos</div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <!-- ══════════════════════════════════════════════════════════════
+       GALERIA DE FOTOS
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="gallery" class="reveal">
+    <h2 class="section-title">📸 Nossa Galeria de Memórias</h2>
+    <p class="gallery-subtitle">Clique nos quadradinhos para adicionar suas fotos favoritas! 💕</p>
+    <div class="gallery-grid" id="gallery-grid"></div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+      <button class="add-slot-btn" onclick="addGallerySlot()">✨ Adicionar mais fotos</button>
+      <button class="add-slot-btn" onclick="exportHTML()"
+              style="background:linear-gradient(135deg,#B87FE8,#FF6B9D);">
+        💾 Baixar para enviar
+      </button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       MENSAGEM ESPECIAL
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="message" class="reveal">
+    <h2 class="section-title">💌 Correio do amor</h2>
+    <div class="message-card">
+      <span class="message-icon">🐾</span>
+      <p class="message-quote">
+        Gabriel, eu te amo de um jeito que nenhuma palavra consegue explicar direito.
+        Esses 5 meses foram cheios de momentos que eu quero guardar pra sempre. Você é meu lugar favorito no mundo. 
+      </p>
+      <div class="message-divider"></div>
+      <div class="message-signature">Com todo meu amor, Luana 💕</div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       EXPLOSÃO DE CORAÇÕES
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="explosion" class="reveal">
+    <h2 class="section-title">💥 Explosão de Amor!</h2>
+    <p style="color:var(--text-l);margin-bottom:32px;font-size:1.1rem;font-weight:700;">
+      Aperta aqui pra sentir todo o amor! 👇
+    </p>
+    <button class="explosion-btn" onclick="explodeHearts()">
+      💕 EXPLODIR DE AMOR! 🐾
+    </button>
+  </section>
+
+  <footer>
+    <p>Feito com 💕 e muito amor para Gabriel &amp; Luana</p>
+    <small>01/11/2025 → Para sempre 🐾</small>
+  </footer>
+
+</main>
+
+<!-- ── BOTÃO DE MÚSICA ─────────────────────────────────────────── -->
+<button id="music-btn" onclick="toggleMusic()" title="Tocar música fofa! 🎵">🎵</button>
+
+<!-- ══════════════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════════════ -->
+<script>
+/* ─── HEARTS BACKGROUND ─────────────────────────────────────── */
+const bgContainer = document.getElementById('hearts-bg');
+const bgEmojis = ['💕','💖','💗','💓','💝','🩷','❤️','🐾','✨','💞'];
+
+function spawnBgHeart() {
+  const el = document.createElement('div');
+  el.className = 'bg-heart';
+  el.textContent = bgEmojis[Math.floor(Math.random() * bgEmojis.length)];
+  el.style.left = (Math.random() * 100) + 'vw';
+  el.style.fontSize = (.7 + Math.random() * 1.6) + 'rem';
+  const dur = 9 + Math.random() * 13;
+  el.style.animationDuration = dur + 's';
+  el.style.animationDelay = (Math.random() * 4) + 's';
+  bgContainer.appendChild(el);
+  setTimeout(() => el.remove(), (dur + 5) * 1000);
+}
+for (let i = 0; i < 18; i++) setTimeout(spawnBgHeart, i * 350);
+setInterval(spawnBgHeart, 1100);
+
+/* ─── LIVE COUNTER ──────────────────────────────────────────── */
+const START = new Date('2025-11-01T00:00:00');
+
+function pad(n, len = 2) { return String(n).padStart(len, '0'); }
+
+function tick() {
+  const diff = Date.now() - START;
+  const days    = Math.floor(diff / 86400000);
+  const hours   = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000)  / 60000);
+  const seconds = Math.floor((diff % 60000)    / 1000);
+  document.getElementById('c-days').textContent  = pad(days, 3);
+  document.getElementById('c-hours').textContent = pad(hours);
+  document.getElementById('c-mins').textContent  = pad(minutes);
+  document.getElementById('c-secs').textContent  = pad(seconds);
+}
+tick();
+setInterval(tick, 1000);
+
+/* ─── FLOATING CATS ─────────────────────────────────────────── */
+const catPool = ['😸','😻','🐱','😺','🐈','😽','🙀','🐈‍⬛'];
+
+function spawnCat() {
+  const el = document.createElement('div');
+  el.className = 'floating-cat';
+  el.textContent = catPool[Math.floor(Math.random() * catPool.length)];
+  const dur = 9 + Math.random() * 7;
+  const top = 10 + Math.random() * 75;
+  const size = 2 + Math.random() * 1.5;
+  el.style.cssText = `top:${top}vh; font-size:${size}rem; animation-duration:${dur}s;`;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), (dur + 1) * 1000);
+}
+setInterval(spawnCat, 6000);
+
+/* ─── GALLERY ───────────────────────────────────────────────── */
+const galleryGrid = document.getElementById('gallery-grid');
+const STORAGE_KEY = 'gl_luana_gabriel';
+
+// State: array of { id, src|null }
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+  catch { return []; }
+}
+function saveState() {
+  const state = [...galleryGrid.querySelectorAll('.gallery-slot')].map(slot => ({
+    id:  slot.id,
+    src: slot.dataset.src || null,
+  }));
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+  catch (e) {
+    // localStorage cheio (fotos grandes demais) — avisa sem quebrar
+    console.warn('localStorage cheio, foto não salva:', e);
+    alert('Foto muito grande para salvar! Tente uma imagem menor. 🐾');
+  }
+}
+
+let slotIdx = 0;
+
+function addGallerySlot(preloadSrc = null) {
+  const id = 'gs' + slotIdx++;
+  const slot = document.createElement('div');
+  slot.className = 'gallery-slot';
+  slot.id = id;
+  slot.style.animationDelay = '.05s';
+  slot.innerHTML = `
+    <input type="file" accept="image/*" id="fi-${id}">
+    <div class="slot-icon">📷</div>
+    <div class="slot-text">Adicionar foto</div>
+    <button class="remove-btn" onclick="removeSlot('${id}',event)">✕</button>
+  `;
+
+  slot.addEventListener('click', e => {
+    if (!e.target.classList.contains('remove-btn')) {
+      slot.querySelector(`#fi-${id}`).click();
+    }
+  });
+
+  slot.querySelector(`#fi-${id}`).addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      applyImage(slot, ev.target.result);
+      saveState();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  galleryGrid.appendChild(slot);
+
+  if (preloadSrc) applyImage(slot, preloadSrc);
+
+  // Only save when user manually adds a slot (not on restore)
+  if (!preloadSrc) saveState();
+}
+
+function applyImage(slot, src) {
+  slot.dataset.src = src;
+  slot.querySelector('.slot-icon').style.display = 'none';
+  slot.querySelector('.slot-text').style.display = 'none';
+  // Remove old img if any
+  const old = slot.querySelector('img');
+  if (old) old.remove();
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = 'Foto do casal';
+  slot.appendChild(img);
+  slot.style.border = '3px solid var(--pink)';
+  slot.style.boxShadow = '0 8px 28px rgba(255,107,157,.3)';
+}
+
+function removeSlot(id, e) {
+  e.stopPropagation();
+  const el = document.getElementById(id);
+  el.style.transition = 'all .3s ease';
+  el.style.transform = 'scale(0) rotate(10deg)';
+  el.style.opacity = '0';
+  setTimeout(() => { el.remove(); saveState(); }, 320);
+}
+
+/* ─── EXPORT ESTÁTICO PARA ENVIAR ───────────────────────────── */
+function exportHTML() {
+  // Só as fotos que foram adicionadas
+  const photos = [...galleryGrid.querySelectorAll('.gallery-slot')]
+    .map(s => s.dataset.src)
+    .filter(Boolean);
+
+  // Grid estático — só imagens, sem upload
+  const staticGallery = photos.length === 0
+    ? '<p style="color:var(--text-l);font-size:1.1rem;font-weight:700;">📷 Nenhuma foto adicionada ainda.</p>'
+    : `<div class="gallery-grid">${
+        photos.map(src =>
+          `<div style="aspect-ratio:1;border-radius:18px;overflow:hidden;box-shadow:0 8px 28px rgba(255,107,157,.25);">
+             <img src="${src}" alt="Foto" style="width:100%;height:100%;object-fit:cover;">
+           </div>`
+        ).join('')
+      }</div>`;
+
+  // Seção da galeria estática (sem botões, sem JS de upload)
+  const staticSection = `
+  <section id="gallery" class="reveal">
+    <h2 class="section-title">📸 Nossa Galeria de Memórias</h2>
+    ${staticGallery}
+  </section>`;
+
+  // Pega o HTML atual e substitui a seção da galeria
+  let html = document.documentElement.outerHTML;
+
+  // Remove o bloco inteiro de JS da galeria (não precisa mais)
+  html = html.replace(
+    /\/\* ─── GALLERY[\s\S]*?\/\* ─── HEART EXPLOSION/,
+    '/* ─── HEART EXPLOSION'
+  );
+
+  // Substitui a seção da galeria no HTML
+  html = html.replace(
+    /<section id="gallery"[\s\S]*?<\/section>/,
+    staticSection
+  );
+
+  // Remove os botões da galeria (add foto + baixar)
+  html = html.replace(
+    /<div style="display:flex[\s\S]*?<\/div>\s*<\/section>/,
+    '</section>'
+  );
+
+  // Gera download
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'gabriel-e-luana-5meses.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// Restore from localStorage or create 6 empty slots
+(function restoreGallery() {
+  const saved = loadState();
+  if (saved.length === 0) {
+    for (let i = 0; i < 6; i++) addGallerySlot();
+  } else {
+    saved.forEach(item => {
+      slotIdx = parseInt(item.id.replace('gs','')) + 1 || slotIdx;
+      addGallerySlot(item.src || null);
+    });
+  }
+})();
+
+/* ─── HEART EXPLOSION ───────────────────────────────────────── */
+const heartPool = ['💕','💖','💗','💓','💝','🩷','❤️','🐾','💘','💞','🌸','✨'];
+
+function explodeHearts() {
+  for (let i = 0; i < 35; i++) {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'falling-heart';
+      el.textContent = heartPool[Math.floor(Math.random() * heartPool.length)];
+      const dur = 2.2 + Math.random() * 2.8;
+      el.style.cssText = `
+        left: ${4 + Math.random() * 92}vw;
+        top: -70px;
+        font-size: ${1.2 + Math.random() * 2.2}rem;
+        animation-duration: ${dur}s;
+      `;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), (dur + .5) * 1000);
+    }, i * 90);
+  }
+}
+
+/* ─── WEB AUDIO MUSIC ───────────────────────────────────────── */
+let audioCtx  = null;
+let masterGain = null;
+let isPlaying  = false;
+let loopTimer  = null;
+
+// Cute melody: "Lavender's Blue" / nursery-style tune
+const MELODY = [
+  // Bar 1
+  {f:523.25,d:.3},{f:587.33,d:.3},{f:659.25,d:.3},
+  {f:698.46,d:.6},
+  {f:659.25,d:.3},{f:587.33,d:.3},
+  {f:523.25,d:.6},
+  // Bar 2
+  {f:392.00,d:.3},{f:440.00,d:.3},{f:493.88,d:.3},
+  {f:523.25,d:.6},
+  {f:440.00,d:.3},{f:392.00,d:.3},
+  {f:349.23,d:.6},
+  // Bar 3
+  {f:523.25,d:.3},{f:587.33,d:.3},{f:659.25,d:.3},
+  {f:698.46,d:.6},
+  {f:784.00,d:.3},{f:698.46,d:.3},
+  {f:659.25,d:.6},
+  // Bar 4
+  {f:587.33,d:.3},{f:523.25,d:.3},{f:493.88,d:.3},
+  {f:440.00,d:.6},
+  {f:392.00,d:.3},{f:349.23,d:.3},
+  {f:523.25,d:.9},
+  // Mini bridge
+  {f:784.00,d:.25},{f:880.00,d:.25},{f:784.00,d:.25},{f:698.46,d:.25},
+  {f:659.25,d:.5},{f:587.33,d:.25},{f:523.25,d:.25},
+  {f:659.25,d:.3},{f:587.33,d:.3},
+  {f:523.25,d:.8},
+];
+
+function playNote(freq, startTime, duration) {
+  const osc  = audioCtx.createOscillator();
+  const env  = audioCtx.createGain();
+
+  // Warm sine wave
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(freq, startTime);
+
+  // Vibrato
+  const lfo     = audioCtx.createOscillator();
+  const lfoGain = audioCtx.createGain();
+  lfo.frequency.value = 5.5;
+  lfoGain.gain.value  = 3;
+  lfo.connect(lfoGain);
+  lfoGain.connect(osc.frequency);
+  lfo.start(startTime);
+  lfo.stop(startTime + duration + .05);
+
+  // Envelope
+  env.gain.setValueAtTime(0, startTime);
+  env.gain.linearRampToValueAtTime(.28, startTime + .04);
+  env.gain.setValueAtTime(.24, startTime + duration * .75);
+  env.gain.linearRampToValueAtTime(0, startTime + duration);
+
+  osc.connect(env);
+  env.connect(masterGain);
+  osc.start(startTime);
+  osc.stop(startTime + duration + .05);
+
+  // Add a soft harmonic (triangle, octave up, quieter)
+  const osc2 = audioCtx.createOscillator();
+  const env2 = audioCtx.createGain();
+  osc2.type = 'triangle';
+  osc2.frequency.setValueAtTime(freq * 2, startTime);
+  env2.gain.setValueAtTime(0, startTime);
+  env2.gain.linearRampToValueAtTime(.07, startTime + .04);
+  env2.gain.linearRampToValueAtTime(0, startTime + duration);
+  osc2.connect(env2);
+  env2.connect(masterGain);
+  osc2.start(startTime);
+  osc2.stop(startTime + duration + .05);
+}
+
+function scheduleMelody() {
+  let t = audioCtx.currentTime + .1;
+  MELODY.forEach(n => {
+    playNote(n.f, t, n.d * .92);
+    t += n.d;
+  });
+  const total = MELODY.reduce((s, n) => s + n.d, 0);
+  loopTimer = setTimeout(() => { if (isPlaying) scheduleMelody(); }, (total - .15) * 1000);
+}
+
+function toggleMusic() {
+  const btn = document.getElementById('music-btn');
+  if (!isPlaying) {
+    if (!audioCtx) {
+      audioCtx  = new (window.AudioContext || window.webkitAudioContext)();
+      masterGain = audioCtx.createGain();
+      masterGain.gain.value = .55;
+      masterGain.connect(audioCtx.destination);
+    }
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    isPlaying = true;
+    btn.textContent = '🎶';
+    btn.classList.add('playing');
+    scheduleMelody();
+  } else {
+    isPlaying = false;
+    clearTimeout(loopTimer);
+    btn.textContent = '🎵';
+    btn.classList.remove('playing');
+    // Fade out
+    masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + .4);
+    setTimeout(() => { masterGain.gain.value = .55; }, 500);
+  }
+}
+
+/* ─── SCROLL REVEAL ─────────────────────────────────────────── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+
+</body>
+</html>
