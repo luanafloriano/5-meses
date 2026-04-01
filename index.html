@@ -691,7 +691,7 @@ setInterval(spawnCat, 6000);
 /* ─── GALLERY — carrega fotos da pasta fotos/ via GitHub API ── */
 (function loadGallery() {
   const grid = document.getElementById('gallery-grid');
-  const REPO = 'luanafloriana/5-meses';
+  const REPO = 'luanafloriano/5-meses';
   const API  = `https://api.github.com/repos/${REPO}/contents/fotos`;
 
   fetch(API)
